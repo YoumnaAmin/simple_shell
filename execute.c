@@ -27,20 +27,26 @@ void execute(char **argv) {
         exit(127);
     }
 
+
+    if (access(path_comd, X_OK) == -1) {
+        fprintf(stderr, "./hsh: 1: %s: Permission denied\n", cmd);
+        exit(126);
+    }
+
     child_pid = fork();
 
     if (child_pid == -1) {
         perror("fork");
         exit(EXIT_FAILURE);
     } else if (child_pid == 0) {
-       
-        execvp(cmd, argv);
+      
+        execve(path_comd, argv, NULL);
 
-        
+       
         fprintf(stderr, "./hsh: 1: %s: Permission denied\n", cmd);
         exit(126);
     } else {
-        
+       
         wait(&status);
 
         if (WIFEXITED(status)) {
