@@ -1,13 +1,13 @@
 #include "main.h"
 /**
- *  * main - main
- *   * Return: 0
- *    */
+ * main - main
+ * Return: 0
+ */
 int main(void)
 {
-		while (1)
-				{
-							prompt_display();
-								}
-		return (0);
+while (1)
+{
+prompt_display();
+}
+return (0);
 }

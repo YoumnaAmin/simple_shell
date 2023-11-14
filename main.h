@@ -8,7 +8,7 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <sys/wait.h>
-
+#include <ctype.h>
 
 int prompt_display(void);
 void split_command(ssize_t r, char **ine);
@@ -20,5 +20,6 @@ void print_env(void);
 char *_strchr(const char *str, int character);
 char *_strtok(char *str, const char *delim);
 void _cd(char **line);
+int is_valid_integer(const char *str);
 
 #endif
