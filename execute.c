@@ -16,34 +16,26 @@ void execute(char **argv)
 	if (strcmp(cmd, "env") == 0)
 	{
 		print_env();
-		return;
-	}
+		return; }
 	if (strcmp(cmd, "cd") == 0)
-    {
-        _cd(argv);
-        return;
-    }
+	{
+		_cd(argv);
+		return; }
 	if (path_comd == NULL)
 	{
 	fprintf(stderr, "./hsh: 1: %s: not found\n", cmd);
-	exit(127);
-	}
-
+	exit(127); }
 	child_pid = fork();
 	if (child_pid == -1)
 	{
 	perror("fork");
-	exit(EXIT_FAILURE);
-	}
+	exit(EXIT_FAILURE); }
 	else if (child_pid == 0)
 	{
 	if (execve(path_comd, argv, environ) == -1)
 	{
 	fprintf(stderr, "./hsh: 1: %s: Permission denied\n", cmd);
-	/*perror("execve");*/
-	exit(126);
-	}
-	}
+	exit(126); } }
 	else
 	{
 	wait(&status);
@@ -53,13 +45,9 @@ void execute(char **argv)
 
 	if (exit_status != 0)
 	{
-	exit(2);
-	}
-	}
+	exit(2); } }
 	else if (WIFSIGNALED(status))
 	{
 	fprintf(stderr, "%s: terminated by signal %d", cmd, WTERMSIG(status));
-	exit(EXIT_FAILURE);
-	}
-	}
+	exit(EXIT_FAILURE); } }
 	}

@@ -32,6 +32,7 @@ int prompt_display(void)
 											comment = _strchr(line, '#');
 											    if (comment != NULL)
 												        {
+															if (comment == line || *(comment - 1) == ' ')
 														    *comment = '\0';
 														        }
 											        if (strcmp(line, "exit\n") == 0)
