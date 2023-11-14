@@ -1,4 +1,4 @@
-nclude "main.h"
+#include "main.h"
 /**
  * *spaces_only - main
  * *@s: string

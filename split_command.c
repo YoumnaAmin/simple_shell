@@ -1,4 +1,4 @@
-nclude "main.h"
+#include "main.h"
 /**
  *  * split-_command - main
  *   * @r: string

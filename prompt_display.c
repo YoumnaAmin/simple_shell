@@ -1,4 +1,4 @@
-nclude "main.h"
+#include "main.h"
 /**
  *  * prompt_display - main
  *   * Return: always 0
