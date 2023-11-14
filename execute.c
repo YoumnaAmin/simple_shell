@@ -9,7 +9,7 @@ void execute(char **argv)
 	char *cmd, *path_comd;
 	pid_t child_pid;
 	int status;
-	extern char **environ;
+	/*extern char **environ;*/
 
 	cmd = argv[0];
 	path_comd = get_path(cmd);
@@ -32,7 +32,7 @@ void execute(char **argv)
 	exit(EXIT_FAILURE); }
 	else if (child_pid == 0)
 	{
-	if (execve(path_comd, argv, environ) == -1)
+	if (execve(path_comd, argv, NULL) == -1)
 	{
 	fprintf(stderr, "./hsh: 1: %s: Permission denied\n", cmd);
 	exit(126); } }
