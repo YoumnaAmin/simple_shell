@@ -25,31 +25,31 @@ void execute(char **argv)
 	{
 	fprintf(stderr, "./hsh: 1: %s: not found\n", cmd);
 	for (i = 0; argv[i] != NULL; ++i)
-    {
-        free(argv[i]);
-    }
-    free(argv);
+	{
+	free(argv[i]);
+	}
+	free(argv);
 	exit(127); }
 	child_pid = fork();
 	if (child_pid == -1)
 	{
 	perror("fork");
 	for (i = 0; argv[i] != NULL; ++i)
-    {
-        free(argv[i]);
-    }
-    free(argv);
-	exit(EXIT_FAILURE); }
+	{
+	free(argv[i]);
+	}
+	free(argv);
+	exit(0); }
 	else if (child_pid == 0)
 	{
 	if (execve(path_comd, argv, environ) == -1)
 	{
 	fprintf(stderr, "./hsh: 1: %s: Permission denied\n", cmd);
-    for (i = 0; argv[i] != NULL; ++i)
-    {
-        free(argv[i]);
-    }
-    free(argv);
+	for (i = 0; argv[i] != NULL; ++i)
+	{
+	free(argv[i]);
+	}
+	free(argv);
 	exit(126); } }
 	else
 	{
@@ -59,20 +59,20 @@ void execute(char **argv)
 	int exit_status = WEXITSTATUS(status);
 
 	if (exit_status != 0)
-	{    
+	{
 	for (i = 0; argv[i] != NULL; ++i)
-    {
-        free(argv[i]);
-    }
-    free(argv);
+	{
+	free(argv[i]);
+	}
+	free(argv);
 	exit(2); } }
 	else if (WIFSIGNALED(status))
 	{
-	fprintf(stderr, "%s: terminated by signal %d", cmd, WTERMSIG(status));
+	fprintf(stderr, "%s: terminated by signal", cmd);
 	for (i = 0; argv[i] != NULL; ++i)
-    {
-        free(argv[i]);
-    }
-    free(argv);
-	exit(EXIT_FAILURE); } }
+	{
+	free(argv[i]);
+	}
+	free(argv);
+	exit(0); } }
 }

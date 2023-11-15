@@ -9,6 +9,7 @@
 #include <sys/stat.h>
 #include <sys/wait.h>
 #include <ctype.h>
+#include <limits.h>
 
 extern char **environ;
 int prompt_display(void);
@@ -22,5 +23,6 @@ char *_strchr(const char *str, int character);
 char *_strtok(char *str, const char *delim);
 void _cd(char **line);
 int is_valid_integer(const char *str);
-
+void _exit_arg(char *line);
+int is_valid_integer(const char *str);
 #endif
