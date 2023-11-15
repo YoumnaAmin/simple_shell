@@ -6,13 +6,14 @@
 */
 int is_valid_integer(const char *str)
 {
-while (*str != '\0')
-{
-if (!isdigit((unsigned char)*str))
-{
-return (0);
-}
-str++;
-}
-return (1);
+	if (!str || !*str)
+		return (0);
+	if (!isdigit(*str) && (*str != '-'))
+		return (0);
+	while (*(++str))
+	{
+		if (!isdigit(*str))
+			return (0);
+	}
+	return (1);
 }

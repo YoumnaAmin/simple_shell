@@ -1,12 +1,11 @@
 #include "main.h"
-/*
- * print_env - main
+/**
+ * print_env - to print env varaiables
  * Return: nothing
  */
 
 void print_env(void)
 {
-extern char **environ;
 char **var;
 
 var = environ;

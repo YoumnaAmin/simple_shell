@@ -6,11 +6,11 @@
  */
 int main(void)
 {
-    int exit_status = 0;
-    
-    while (exit_status == 0) {
-        exit_status = prompt_display();
-    }
+	int exit_status = 0;
 
-    return 0;
+	while (exit_status == 0)
+	{
+		exit_status = prompt_display();
+	}
+	return (0);
 }
