@@ -27,7 +27,6 @@ exit(0);
 if (r == -1)
 {
 free(line);
-printf("\n");
 exit(0);
 }
 comment = _strchr(line, '#');
