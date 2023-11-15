@@ -25,13 +25,12 @@ char *get_path(char *comd)
             {
                 perror("Memory allocation error");
                 free(path_cp);
-				free(path_file);  
                 exit(EXIT_FAILURE);
             }
             strcpy(path_file, path_div);
             strcat(path_file, "/");
             strcat(path_file, comd);
-            strcat(path_file, "\0");
+		
             if (stat(path_file, &buffer) == 0)
             {
                 free(path_cp);  
