@@ -26,6 +26,12 @@ exit(0);
 }
 if (r == -1)
 {
+	if (isatty(0))
+	{
+		printf("\n");
+		free(line);
+		exit(0);
+	}
 free(line);
 exit(0);
 }

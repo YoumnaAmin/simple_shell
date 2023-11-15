@@ -13,22 +13,32 @@ void execute(char **argv)
 
 	cmd = argv[0];
 	path_comd = get_path(cmd);
-	if (strcmp(cmd, "env") == 0)
+	/*if (strcmp(cmd, "env") == 0)
 	{
 		print_env();
 		return; }
 	if (strcmp(cmd, "cd") == 0)
 	{
 		_cd(argv);
-		return; }
+		return; }*/
 	if (path_comd == NULL)
 	{
 	fprintf(stderr, "./hsh: 1: %s: not found\n", cmd);
+	for (i = 0; argv[i] != NULL; ++i)
+    {
+        free(argv[i]);
+    }
+    free(argv);
 	exit(127); }
 	child_pid = fork();
 	if (child_pid == -1)
 	{
 	perror("fork");
+	for (i = 0; argv[i] != NULL; ++i)
+    {
+        free(argv[i]);
+    }
+    free(argv);
 	exit(EXIT_FAILURE); }
 	else if (child_pid == 0)
 	{
@@ -49,11 +59,20 @@ void execute(char **argv)
 	int exit_status = WEXITSTATUS(status);
 
 	if (exit_status != 0)
-	{
-	free (argv);
+	{    
+	for (i = 0; argv[i] != NULL; ++i)
+    {
+        free(argv[i]);
+    }
+    free(argv);
 	exit(2); } }
 	else if (WIFSIGNALED(status))
 	{
 	fprintf(stderr, "%s: terminated by signal %d", cmd, WTERMSIG(status));
+	for (i = 0; argv[i] != NULL; ++i)
+    {
+        free(argv[i]);
+    }
+    free(argv);
 	exit(EXIT_FAILURE); } }
-	}
+}
