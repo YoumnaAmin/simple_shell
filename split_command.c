@@ -1,8 +1,9 @@
 #include "main.h"
 /**
- * split-_command - main
+ * split_command - main
  * @r: string
  * @line: copy the line of string
+ * Return : nothing
 */
 void split_command(ssize_t r, char **line)
 {

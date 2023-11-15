@@ -39,12 +39,14 @@ if (strncmp(line, "exit", 5) == 0)
 status_str = line + 5;
 status = atoi(status_str);
 
-if (*status_str == '\0' || !is_valid_integer(status_str))
+/**
+ * if (*status_str == '\0' || !is_valid_integer(status_str))
 {
 fprintf(stderr, "Illegal number: %s\n", status_str);
 free(line);
 return (2);
 }
+*/
 free(line);
 exit(status);
 }

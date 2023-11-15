@@ -9,9 +9,9 @@ int spaces_only(char *s)
 int i;
 
 for (i = 0; s[i] != '\n'; ++i)
-{
-if (s[i] != ' ')
-return (0);
-}
+	{
+	if (s[i] != ' ')
+	return (0);
+	}
 return (1);
 }
