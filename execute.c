@@ -13,14 +13,14 @@ void execute(char **argv)
 
 	cmd = argv[0];
 	path_comd = get_path(cmd);
-	/*if (strcmp(cmd, "env") == 0)
+	if (strcmp(cmd, "env") == 0)
 	{
 		print_env();
 		return; }
 	if (strcmp(cmd, "cd") == 0)
 	{
 		_cd(argv);
-		return; }*/
+		return; }
 	if (path_comd == NULL)
 	{
 	fprintf(stderr, "./hsh: 1: %s: not found\n", cmd);
