@@ -16,7 +16,12 @@ char *get_path(char *comd)
     {
         path_cp = strdup(path);
         comd_len = strlen(comd);
+<<<<<<< HEAD
         path_div = strtok(path_cp, ":");
+=======
+        path_div = _strtok(path_cp, ":");
+	    
+>>>>>>> 0531f4b9543be6c92b2c4ae1eb5bf20d97947980
         while (path_div != NULL)
         {
             path_div_len = strlen(path_div);
@@ -25,13 +30,12 @@ char *get_path(char *comd)
             {
                 perror("Memory allocation error");
                 free(path_cp);
-				free(path_file);  
                 exit(EXIT_FAILURE);
             }
             strcpy(path_file, path_div);
             strcat(path_file, "/");
             strcat(path_file, comd);
-            strcat(path_file, "\0");
+		strcat(path_file, "\0");
             if (stat(path_file, &buffer) == 0)
             {
                 free(path_cp);  
