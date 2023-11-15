@@ -7,7 +7,7 @@
 */
 void split_command(ssize_t r, char **line)
 {
-int i;
+int i,  j;
 int w_num = 0;
 char *word;
 char **argv;
@@ -18,6 +18,7 @@ line_cp = malloc(sizeof(char) * (r + 1));
 if (line_cp == NULL)
 {
 perror("Memory allocation error");
+free(line_cp);
 exit(0);
 }
 strcpy(line_cp, *line);
@@ -32,6 +33,12 @@ argv = malloc(sizeof(char *) * (w_num + 1));
 if (argv == NULL)
 {
 perror("Memory allocation error");
+for (j = 0; j < w_num; j++)
+{
+free(argv[j]);
+}
+free(argv);
+free(line_cp);
 exit(0);
 }
 word = _strtok(line_cp, delim);

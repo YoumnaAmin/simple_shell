@@ -7,9 +7,9 @@
 
 char *get_path(char *comd)
 {
-	char *path, *path_cp, *path_div, *path_file;
-	int comd_len, path_div_len;
-	struct stat buffer;
+    char *path, *path_cp, *path_div, *path_file;
+    int comd_len, path_div_len;
+    struct stat buffer;
 
 	path = getenv("PATH");
 	if (path)

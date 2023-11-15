@@ -10,6 +10,7 @@
 #include <sys/wait.h>
 #include <ctype.h>
 
+extern char **environ;
 int prompt_display(void);
 void split_command(ssize_t r, char **ine);
 void execute(char **argv);
