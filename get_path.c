@@ -24,7 +24,8 @@ char *get_path(char *comd)
             if (path_file == NULL)
             {
                 perror("Memory allocation error");
-                free(path_cp);  
+                free(path_cp);
+				free(path_file);  
                 exit(EXIT_FAILURE);
             }
             strcpy(path_file, path_div);
@@ -38,13 +39,13 @@ char *get_path(char *comd)
             }
             else
             {
+				free(path_file);
                 path_div = _strtok(NULL, ":");
-                free(path_file);
             }
         }
         free(path_cp);
         if (stat(comd, &buffer) == 0)
-            return (strdup(comd));
+            return (comd);
         return (NULL);
     }
     return (NULL);

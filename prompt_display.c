@@ -10,8 +10,8 @@ ssize_t r = 0;
 char *line = NULL;
 size_t len = 0;
 char *comment;
-char *status_str;
-int status;
+/*char *status_str;
+int status;*/
 char *prompt = "($) ";
 
 if (isatty(0))
@@ -27,6 +27,7 @@ exit(0);
 if (r == -1)
 {
 free(line);
+printf("\n");
 exit(0);
 }
 comment = _strchr(line, '#');
@@ -40,7 +41,7 @@ if (strcmp(line, "exit\n") == 0)
 	free(line);
     exit(0);
 }
-if (strncmp(line, "exit", 5) == 0)
+/*if (strncmp(line, "exit", 5) == 0)
 {
 status_str = line + 5;
 status = atoi(status_str);
@@ -53,7 +54,7 @@ return (2);
 }
 free(line);
 exit(status);
-}
+}*/
 split_command(r, &line);
 free(line);
 return (0);

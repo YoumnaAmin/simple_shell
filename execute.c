@@ -8,7 +8,7 @@ void execute(char **argv)
 {
 	char *cmd, *path_comd;
 	pid_t child_pid;
-	int status;
+	int status, i;
 	/*extern char **environ;*/
 
 	cmd = argv[0];
@@ -35,6 +35,11 @@ void execute(char **argv)
 	if (execve(path_comd, argv, environ) == -1)
 	{
 	fprintf(stderr, "./hsh: 1: %s: Permission denied\n", cmd);
+    for (i = 0; argv[i] != NULL; ++i)
+    {
+        free(argv[i]);
+    }
+    free(argv);
 	exit(126); } }
 	else
 	{
@@ -45,6 +50,7 @@ void execute(char **argv)
 
 	if (exit_status != 0)
 	{
+	free (argv);
 	exit(2); } }
 	else if (WIFSIGNALED(status))
 	{
