@@ -26,6 +26,7 @@ exit(0);
 }
 if (r == -1)
 {
+free(line);
 exit(0);
 }
 comment = _strchr(line, '#');
@@ -33,6 +34,11 @@ if (comment != NULL)
 {
 if (comment == line || *(comment - 1) == ' ')
 	*comment = '\0';
+}
+if (strcmp(line, "exit\n") == 0)
+{
+	free(line);
+    exit(0);
 }
 if (strncmp(line, "exit", 5) == 0)
 {
