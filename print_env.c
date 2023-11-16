@@ -19,4 +19,4 @@ while (*var != NULL)
 	printf("%s\n", *var);
 	var++;
 }
-}		 
+}	 
