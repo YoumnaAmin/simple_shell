@@ -26,4 +26,6 @@ void _cd(char **line);
 int is_valid_integer(const char *str);
 void _exit_arg(char *line);
 int is_valid_integer(const char *str);
+
+
 #endif
