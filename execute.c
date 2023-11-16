@@ -9,10 +9,10 @@ void execute(char **argv)
 	char *cmd, *path_comd;
 	pid_t child_pid;
 	int status, i;
-	
+
 	cmd = argv[0];
 	path_comd = get_path(cmd);
-	
+
 	if (strcmp(cmd, "env") == 0)
 	{
 		print_env();
@@ -30,7 +30,7 @@ void execute(char **argv)
 	}
 	free(argv);
 	exit(127); }
-	
+
 	child_pid = fork();
 	if (child_pid == -1)
 	{
